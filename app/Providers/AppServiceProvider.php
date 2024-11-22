@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Observers\MonitorObserver;
 use Illuminate\Support\ServiceProvider;
+use Spatie\UptimeMonitor\Models\Monitor;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        //Monitor::observe(MonitorObserver::class);
     }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\UptimeMonitor\Models\Monitor;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +14,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('password'),
+        ]);
+
+        Monitor::create([
+            'url' => 'https://elefantrendelo.com/',
+            'uptime_check_interval_in_minutes' => 1,
+            'uptime_check_enabled' => true,
+            'uptime_status' => 'up',
+        ]);
+        //https://faddikorrkft.hu/
+        Monitor::create([
+            'url' => 'https://faddikorrkft.hu/',
+            'uptime_check_interval_in_minutes' => 1,
+            'uptime_check_enabled' => true,
+            'uptime_status' => 'up',
         ]);
     }
 }
