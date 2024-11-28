@@ -10,7 +10,7 @@ class AverageResponseTime extends BaseWidget
 {
     protected function getStats(): array
     {
-        $averageResponseTime = MonitorCheck::avg('response_time_in_ms');
+        $averageResponseTime = MonitorCheck::avg('response_time_in_ms') ?? 0;
         $successfulChecks = MonitorCheck::where('status', 'up')->count();
         $failedChecks = MonitorCheck::where('status', '!=', 'up')->count();
 
