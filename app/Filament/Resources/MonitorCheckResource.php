@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MonitorCheckResource\Pages;
+use App\Filament\Resources\MonitorCheckResource\Widgets\AverageResponseTime;
 use App\Models\MonitorCheck;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -87,6 +88,13 @@ class MonitorCheckResource extends Resource
             'index' => Pages\ListMonitorChecks::route('/'),
             'create' => Pages\CreateMonitorCheck::route('/create'),
             'edit' => Pages\EditMonitorCheck::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            AverageResponseTime::class,
         ];
     }
 }

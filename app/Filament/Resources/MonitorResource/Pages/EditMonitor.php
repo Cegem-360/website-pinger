@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\MonitorResource\Pages;
 
+use App\Filament\Resources\MonitorCheckResource\Widgets\AverageResponseTime;
 use App\Filament\Resources\MonitorResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
@@ -14,6 +15,13 @@ class EditMonitor extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            AverageResponseTime::class,
         ];
     }
 }

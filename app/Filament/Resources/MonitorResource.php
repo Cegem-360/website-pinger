@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MonitorResource\Pages;
+use App\Filament\Widgets\AverageResponseTime;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -133,6 +134,20 @@ class MonitorResource extends Resource
             'index' => Pages\ListMonitors::route('/'),
             'create' => Pages\CreateMonitor::route('/create'),
             'edit' => Pages\EditMonitor::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getStats(): array
+    {
+        return [
+
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            AverageResponseTime::class,
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\MonitorResource\Pages;
 
+use App\Filament\Resources\MonitorCheckResource\Widgets\AverageResponseTime;
 use App\Filament\Resources\MonitorResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
@@ -14,6 +15,13 @@ class ListMonitors extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            AverageResponseTime::class,
         ];
     }
 }
